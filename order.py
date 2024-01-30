@@ -16,3 +16,6 @@ class Order:
 
     def total_cost(self):
         return self.quantity * self.product.price
+
+    def __str__(self):
+        return f"Order - Customer: {self.customer.name}, Product: {self.product.name}, Quantity: {self.quantity}, Total Cost: ${self.total_cost():.2f}"

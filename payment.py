@@ -21,3 +21,8 @@ class Payment:
             if self.card:
                 print("Card details:")
                 print(self.card)
+            else:
+            print("Invalid payment method. Please choose 'Credit' or 'Debit'.")
+
+    def __str__(self):
+        return f"Payment - Amount: ${self.amount:.2f}, Method: {self.payment_method}"

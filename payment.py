@@ -7,3 +7,9 @@ class CreditDebitCard:
 
     def __str__(self):
         return f"Card Number: {self.card_number}, Card Holder: {self.card_holder}, Expiration Date: {self.expiration_date}, CVV: {self.cvv}"
+        
+class Payment:
+    def __init__(self, amount, payment_method, card=None):
+        self.amount = amount
+        self.payment_method = payment_method
+        self.card = card

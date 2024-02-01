@@ -13,3 +13,11 @@ class Payment:
         self.amount = amount
         self.payment_method = payment_method
         self.card = card
+        
+    def process_payment(self):
+        print(f"Processing payment of ${self.amount:.2f} using {self.payment_method}")
+        if self.payment_method.lower() in ["credit", "debit"]:
+            print("Payment successfully processed")
+            if self.card:
+                print("Card details:")
+                print(self.card)

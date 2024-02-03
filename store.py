@@ -11,14 +11,14 @@ class OnlineStore:
         self.cursor = self.connection.cursor()
 
 
-   def add_product(self, name, price, quantity):
+    def add_product(self, name, price, quantity):
         self.cursor.execute("INSERT INTO products (name, price, quantity) VALUES (?, ?, ?)",
                             (name, price, quantity))
         self.connection.commit()
-        print(f"Product added to {self.name}, name, price, quantity)}")
+        print(f"Product added to {self.name} store: {Product(self.cursor.lastrowid, name, price, quantity)}")
 
     def add_customer(self, name, email):
-        self.cursor("INSERT INTO customers (name, email) VALUES (?, ?)",
+        self.cursor.execute("INSERT INTO customers (name, email) VALUES (?, ?)",
                             (name, email))
         self.connection.commit()
-        print(f"Customer added to {self.name} store: {Customer(self.cursor, name, email)}")
+        print(f"Customer added to {self.name} store: {Customer(self.cursor.lastrowid, name, email)}")

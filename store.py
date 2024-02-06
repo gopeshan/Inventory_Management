@@ -55,3 +55,17 @@ class OnlineStore:
             if product.is_low_stock():
                 print(f"Low Stock Alert: {product.name} - Quantity: {product.quantity}")
             print(f"Availability Status: {product.availability_status()}")
+
+    def display_inventory(self):
+        self.cursor.execute("SELECT * FROM products")
+        products = self.cursor.fetchall()
+        print(f"Inventory in {self.name} store:")
+        for product_data in products:
+            product = Product(*product_data)
+            print(product)
+            if product.is_low_stock():
+                print(f"Low Stock Alert: {product.name} - Quantity: {product.quantity}")
+            print(f"Availability Status: {product.availability_status()}")
+
+    def __del__(self):
+        self.connection.close()
